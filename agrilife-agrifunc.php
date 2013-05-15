@@ -1,15 +1,15 @@
 <?php
 /**
-Plugin Name: Plugin Boilerplate
+Plugin Name: AgriLife AgriFunc
 Plugin URI: @todo Add the URL to the plugin page (your site, GitHub, etc.)
-Description: @todo Describe the plugin
+Description: The funciest functionality plugin to grace AgriLife sites
 Version: 0.1
-Author: @todo Enter author name
-Author URI: @todo Enter author's URL
-Author Email: @todo Enter author's email
+Author: Texas A&M AgriLife Communications
+Author URI: http://agrilife.org/communications
+Author Email: admin@agrilife.org
 License:
 
-  Copyright 2013 @todo (email@domain.com)
+  Copyright 2013 Texas A&M AgriLife Communications (admin@agrilife.org)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as
@@ -27,9 +27,6 @@ License:
 */
 
 /**
- * @todo Rename this class to a proper name for your plugin. Give a proper description of
- * the plugin, it's purpose, and any dependencies it has.
- *
  * Use PHPDoc directives if you wish to be able to document the code using a documentation
  * generator.
  *
@@ -37,14 +34,12 @@ License:
  */
 
 // Autoload the vendor classes
-// @todo Change 'PluginName' to your class name
-spl_autoload_register( 'PluginName::vendor_autoload' );
+spl_autoload_register( 'AgriFunc::vendor_autoload' );
 
 // Autoload the plugin classes
-// @todo Change 'PluginName' to your class name
-spl_autoload_register( 'PluginName::plugin_autoload' );
+spl_autoload_register( 'AgriFunc::plugin_autoload' );
 
-class PluginName {
+class AgriFunc {
 
 	/*--------------------------------------------*
 	 * Attributes
@@ -96,7 +91,7 @@ class PluginName {
      * Add the options page and menu item.
      * Uncomment the following line to enable the Settings Page for the plugin:
      */
-	  // add_action( 'admin_menu', array( $this, 'plugin_admin_menu' ) );
+	  add_action( 'admin_menu', array( $this, 'plugin_admin_menu' ) );
 
     /*
 		 * Register admin styles and scripts
@@ -147,7 +142,6 @@ class PluginName {
 
 	/**
 	 * Fired when the plugin is deactivated.
-	 * @todo Define deactivation functionality here
 	 * @param	boolean	$network_wide	True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog
 	 */
 	public function deactivate( $network_wide ) {
@@ -158,12 +152,10 @@ class PluginName {
 
 	/**
 	 * Loads the plugin text domain for translation
-	 *
-	 * @todo Replace 'plugin-name-locale' with a unique value for your plugin
 	 */
 	public function plugin_textdomain() {
 
-		$domain = 'plugin-name-locale';
+		$domain = 'agrilife';
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 		
       load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
@@ -190,7 +182,7 @@ class PluginName {
 	    
 			 $screen = get_current_screen();
 			 if ( $screen->id == $this->plugin_screen_slug ) {
-			 	wp_enqueue_style( 'plugin-name-admin-styles', plugins_url( 'css/admin.css', __FILE__ ) );
+			 	wp_enqueue_style( 'agrifunc-admin-styles', plugins_url( 'css/admin.css', __FILE__ ) );
 			 } // end if
 	    
 	    } // end if
@@ -216,7 +208,7 @@ class PluginName {
 	    
 			$screen = get_current_screen();
 			if ( $screen->id == $this->plugin_screen_slug ) {
-				wp_enqueue_script( 'plugin-name-admin-script', plugins_url( 'js/admin.min.js', __FILE__ ), array( 'jquery' ) );
+				wp_enqueue_script( 'agrifunc-admin-script', plugins_url( 'js/admin.min.js', __FILE__ ), array( 'jquery' ) );
 			} // end if
     
     } // end if
@@ -226,21 +218,19 @@ class PluginName {
 	/**
 	 * Registers and enqueues plugin-specific styles.
 	 *
-	 * @todo Change 'plugin-name-plugin-styles' to something unique to the plugin
 	 */
 	public function register_plugin_styles() {
 
-		wp_enqueue_style( 'plugin-name-plugin-styles', plugins_url( 'css/display.css', __FILE__ ) );
+		wp_enqueue_style( 'agrifunc-display-style', plugins_url( 'css/display.css', __FILE__ ) );
 
 	} // end register_plugin_styles
 
 	/**
 	 * Registers and enqueues plugin-specific scripts.
 	 * 
-	 * @todo Change 'plugin-name-plugin-scripts' to something unique to the plugin
 	 */
 	public function register_plugin_scripts() {
-		wp_enqueue_script( 'plugin-name-plugin-script', plugins_url( 'js/display.min.js', __FILE__ ), array( 'jquery' ) );
+		wp_enqueue_script( 'agrifunc-plugin-script', plugins_url( 'js/display.min.js', __FILE__ ), array( 'jquery' ) );
 	} // end register_plugin_scripts
 
 	/**
@@ -261,9 +251,6 @@ class PluginName {
 	/**
 	 * Registers the administration menu for this plugin into the WordPress Dashboard menu.
 	 * 
-	 * @todo Change 'Page Settings' to the title of your plugin admin page
-	 * @todo Change 'update_core' to the required capability
-	 * @todo Change 'plugin-settings' to the slug of your plugin
 	 */
 	public function plugin_admin_menu() {
 	
@@ -272,10 +259,10 @@ class PluginName {
 		$this->wpsf = new Settings( $this->path . 'lib/plugin-settings.php' );
 
 		add_menu_page(
-			'Plugin Settings',
-			'Plugin Settings',
-			'update_core',
-			'plugin-settings',
+			'AgriFunc',
+			'AgriFunc',
+			'activate_plugins',
+			'agrifunc-settings',
 			array( $this, 'plugin_admin_page' )
 		);
     	
@@ -411,5 +398,4 @@ class PluginName {
 
 } // end class
 
-// @todo Update the instantiation call of your plugin to the name given at the class definition
-PluginName::get_instance();
+AgriFunc::get_instance();

@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @todo Define the plugin settings
  * @see https://github.com/gilbitron/WordPress-Settings-Framework
  */
 
