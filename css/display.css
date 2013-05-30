@@ -1,0 +1,13 @@
+/* DO NO EDIT FILE DIRECTLY. USE SRC/DISPLAY.SCSS */
+.pullquote {
+  width: 20%;
+  float: right;
+  border-top: 3px solid #868686;
+  border-bottom: 3px solid #868686;
+  background: top left no-repeat url("../img/quote.png");
+  text-indent: 10px;
+  margin: 10px 0 10px 10px;
+  -webkit-box-shadow: #818181 7px 7px 8px;
+  -moz-box-shadow: #818181 7px 7px 8px;
+  box-shadow: #818181 7px 7px 8px;
+}
