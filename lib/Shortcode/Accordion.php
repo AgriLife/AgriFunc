@@ -3,7 +3,7 @@
  * Original code by Patrick Forringer (http://patrick.forringer.com)
  */
 
-if ( ! class_exists( Shortcode_Accordion ) ) {
+if ( ! class_exists( 'Shortcode_Accordion' ) ) {
 	class Shortcode_Accordion{
 		
 		public function __construct(){
