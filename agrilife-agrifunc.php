@@ -107,7 +107,7 @@ class AgriFunc {
 
 		// Register site stylesheets and JavaScript
 		// add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
-		// add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
 		// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 		// register_activation_hook( __FILE__, array( $this, 'activate' ) );
