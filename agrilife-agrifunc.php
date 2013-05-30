@@ -106,7 +106,7 @@ class AgriFunc {
 		// add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 
 		// Register site stylesheets and JavaScript
-		// add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
 		// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
@@ -304,7 +304,7 @@ class AgriFunc {
 
 		// Instantiate the modules
 		$shortcode_accordion = new Shortcode_Accordion;
-		$shortcode_pullquote = new Shorcode_Pullquote;
+		$shortcode_pullquote = new Shortcode_Pullquote;
 
 	} // end action_method_name
 
