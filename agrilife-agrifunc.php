@@ -33,6 +33,9 @@ License:
  * @version	0.1
  */
 
+define( 'AF_DIR', plugin_dir_path( __FILE__ ) );
+define( 'AF_URL', plugin_dir_url( __FILE__ ) );
+
 // Autoload the vendor classes
 spl_autoload_register( 'AgriFunc::vendor_autoload' );
 
