@@ -33,6 +33,9 @@ License:
  * @version	0.1
  */
 
+define( 'AF_DIR', plugin_dir_path( __FILE__ ) );
+define( 'AF_URL', plugin_dir_url( __FILE__ ) );
+
 // Autoload the vendor classes
 spl_autoload_register( 'AgriFunc::vendor_autoload' );
 
@@ -104,7 +107,7 @@ class AgriFunc {
 
 		// Register site stylesheets and JavaScript
 		// add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
-		// add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
 
 		// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
 		// register_activation_hook( __FILE__, array( $this, 'activate' ) );
@@ -114,7 +117,6 @@ class AgriFunc {
 		add_action( 'plugins_loaded', array( $this, 'github_updater' ) );
 
     /**
-     * @todo Define the custom functionality for your plugin. The first parameter of the
      * add_action/add_filter calls are the hooks into which your code should fire.
      *
      * The second parameter is the function name located within this class. See the stubs
@@ -123,7 +125,7 @@ class AgriFunc {
      * For more information:
      * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
      */
-    add_action( 'TODO', array( $this, 'action_method_name' ) );
+    add_action( 'init', array( $this, 'init' ) );
     add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
 	} // end constructor
@@ -296,12 +298,12 @@ class AgriFunc {
 	 *		  WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
 	 *		  Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *		  
-	 * @todo Define your action method here
 	 *
 	 */
-	public function action_method_name() {
+	public function init() {
 
-
+		// Instantiate the modules
+		$shortcode_accordion = new Shortcode_Accordion;
 
 	} // end action_method_name
 
