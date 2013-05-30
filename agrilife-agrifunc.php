@@ -304,6 +304,7 @@ class AgriFunc {
 
 		// Instantiate the modules
 		$shortcode_accordion = new Shortcode_Accordion;
+		$shortcode_pullquote = new Shorcode_Pullquote;
 
 	} // end action_method_name
 
