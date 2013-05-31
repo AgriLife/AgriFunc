@@ -7,6 +7,36 @@
 
 class Widget_SocialMedia extends WP_Widget {
 
+  private $accounts_array = array(
+    'facebook' => 'Facebook',
+    'googleplus' => 'Google+',
+    'twitter' => 'Twitter',
+    'flickr' => 'Flickr',
+    'youtube' => 'Youtube',
+    'linkedin' => 'LinkedIn',
+    'instagram' => 'Instagram',
+    'pinterest' => 'Pinterest',
+    'rss' => 'RSS Feed URL',
+  );
+
+  private $facebook;
+
+  private $googleplus;
+
+  private $twitter;
+
+  private $flickr;
+
+  private $youtube;
+
+  private $linkedin;
+
+  private $instagram;
+
+  private $pinterest;
+
+  private $rss;
+
   /**
    * Register widget with WordPress
    */
@@ -124,35 +154,36 @@ class Widget_SocialMedia extends WP_Widget {
       $title = __( 'Social Media', 'text_domain' );
     }
     if ( isset( $instance['s']['facebook'] ) ) {
-      $facebook = $instance['s']['facebook'];
+      $this->facebook = $instance['s']['facebook'];
     }
     if ( isset( $instance['s']['googleplus'] ) ) {
-      $googleplus = $instance['s']['googleplus'];
+      $this->googleplus = $instance['s']['googleplus'];
     }
     if ( isset( $instance['s']['twitter'] ) ) {
-      $twitter = $instance['s']['twitter'];
+      $this->twitter = $instance['s']['twitter'];
     }
     if ( isset( $instance['s']['flickr'] ) ) {
-      $flickr = $instance['s']['flickr'];
+      $this->flickr = $instance['s']['flickr'];
     }
     if ( isset( $instance['s']['youtube'] ) ) {
-      $youtube = $instance['s']['youtube'];
+      $this->youtube = $instance['s']['youtube'];
     }
     if ( isset( $instance['s']['linkedin'] ) ) {
-      $linkedin = $instance['s']['linkedin'];
+      $this->linkedin = $instance['s']['linkedin'];
     }
     if ( isset( $instance['s']['instagram'] ) ) {
-      $instagram = $instance['s']['instagram'];
+      $this->instagram = $instance['s']['instagram'];
     }
     if ( isset( $instance['s']['pinterest'] ) ) {
-      $pinterest = $instance['s']['pinterest'];
+      $this->pinterest = $instance['s']['pinterest'];
     }
     if ( empty( $instance['s']['rss'] ) ) {
-      $rss = $options['feedBurner'];
+      $this->rss = $options['feedBurner'];
     }
     else {
-      $rss = $instance['s']['rss'];
+      $this->rss = $instance['s']['rss'];
     }
+
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -160,49 +191,22 @@ class Widget_SocialMedia extends WP_Widget {
     </p>
     <hr />
     <p class="description">Include 'http://' in all fields. Full profile URLs only.</p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e( 'Facebook:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" type="text" value="<?php echo esc_attr( $facebook ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'googleplus' ); ?>"><?php _e( 'Google+:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'googleplus' ); ?>" name="<?php echo $this->get_field_name( 'googleplus' ); ?>" type="text" value="<?php echo esc_attr( $googleplus ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'twitter' ); ?>"><?php _e( 'Twitter:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" type="text" value="<?php echo esc_attr( $twitter ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'flickr' ); ?>"><?php _e( 'Flickr:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'flickr' ); ?>" name="<?php echo $this->get_field_name( 'flickr' ); ?>" type="text" value="<?php echo esc_attr( $flickr ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e( 'Youtube:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>" type="text" value="<?php echo esc_attr( $youtube ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e( 'LinkedIn:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" type="text" value="<?php echo esc_attr( $linkedin ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'instagram' ); ?>"><?php _e( 'Instagram:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>" type="text" value="<?php echo esc_attr( $instagram ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'pinterest' ); ?>"><?php _e( 'Pinterest:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'pinterest' ); ?>" name="<?php echo $this->get_field_name( 'pinterest' ); ?>" type="text" value="<?php echo esc_attr( $pinterest ); ?>" />
-    </p>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'rss' ); ?>"><?php _e( 'RSS Feed URL:' ); ?></label>
-      <input class="widefat" id="<?php echo $this->get_field_id( 'rss' ); ?>" name="<?php echo $this->get_field_name( 'rss' ); ?>" type="text" value="<?php echo esc_attr( $rss ); ?>" />
-    </p>
+
     <?php
+    $this->render_fields( $this->accounts_array );
+
   }
 
-} // class SocialMediaIcons
+  private function render_fields( $accounts_array ) {
 
-add_action('widgets_init', 'register_social_widget');
-function register_social_widget() {
-  register_widget('AgriLife_Social_Media');
+    foreach ($accounts_array as $key => $value) : ?>
+      <p>
+        <label for="<?php echo $this->get_field_id( $key ); ?>"><?php _e( $value . ':'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( $key ); ?>" name="<?php echo $this->get_field_name( $key ); ?>" type="text" value="<?php echo esc_attr( $this->$key ); ?>" />
+      </p>
+    <?php
+    endforeach;
+
+  }
+
 }
-
