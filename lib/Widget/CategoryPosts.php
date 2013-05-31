@@ -12,7 +12,7 @@ class Widget_CategoryPosts extends WP_Widget {
 
 		parent::__construct(
 	 		'category_widget', // Base ID
-			'Category Widget', // Name
+			'Category Posts', // Name
       array(
         'description' => __( 'Displays posts from a given category',
           'text_domain' ), ) // Args
