@@ -4,3 +4,93 @@
   text-indent: 10px;
   margin: 10px 0 10px 10px;
 }
+
+.social-media {
+  padding: 0;
+}
+.social-media ul {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.social-media-item {
+  float: left;
+  width: 16.6666666666667%;
+}
+.social-media-item a {
+  display: block;
+  height: 36px;
+  width: 36px;
+  direction: ltr;
+  text-indent: -999em;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-image: url("../img/social-media/social-icons.png");
+  margin: auto;
+}
+.social-media-item a:hover {
+  background-position: left bottom;
+}
+
+a.googleplus {
+  background-position: -30px -160px;
+}
+a.googleplus:hover {
+  background-position: -95px -160px;
+}
+
+a.facebook {
+  background-position: -30px -290px;
+}
+a.facebook:hover {
+  background-position: -95px -290px;
+}
+
+a.twitter {
+  background-position: -30px -420px;
+}
+a.twitter:hover {
+  background-position: -95px -420px;
+}
+
+a.flickr {
+  background-position: -30px -355px;
+}
+a.flickr:hover {
+  background-position: -95px -355px;
+}
+
+a.youtube {
+  background-position: -30px -95px;
+}
+a.youtube:hover {
+  background-position: -95px -95px;
+}
+
+a.rss {
+  background-position: -30px -485px;
+}
+a.rss:hover {
+  background-position: -95px -485px;
+}
+
+a.instagram {
+  background-position: -30px -30px;
+}
+a.instagram:hover {
+  background-position: -95px -30px;
+}
+
+a.linkedin {
+  background-position: -30px -225px;
+}
+a.linkedin:hover {
+  background-position: -95px -225px;
+}
+
+a.pinterest {
+  background-position: -30px -550px;
+}
+a.pinterest:hover {
+  background-position: -95px -550px;
+}
