@@ -10,9 +10,15 @@ if ( ! class_exists( 'Shortcode_Pullquote' ) ) {
 		}
 		
 		public function do_shortcode( $attrs, $content ){
+
+			extract( shortcode_atts( array(
+					'float' => 'right',
+				), $attrs ) );
 			
 			$content = wpautop(trim($content));
-      return '<div class="pullquote">'. do_shortcode($content) .'</div>';
+      return '<div class="pullquote" style="float: ' . $float . ';">' .
+      	do_shortcode($content) .
+      	'</div>';
       
 		}
 
