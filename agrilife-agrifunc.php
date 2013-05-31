@@ -126,6 +126,7 @@ class AgriFunc {
      * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
      */
     add_action( 'init', array( $this, 'init' ) );
+    add_action( 'widgets_init', array( $this, 'widgets_init' ) );
     add_filter( 'TODO', array( $this, 'filter_method_name' ) );
 
 	} // end constructor
@@ -306,7 +307,16 @@ class AgriFunc {
 		$shortcode_accordion = new Shortcode_Accordion;
 		$shortcode_pullquote = new Shortcode_Pullquote;
 
+		// Widgets
+		// $widget_socialmedia = new Widget_SocialMedia;
+
 	} // end action_method_name
+
+	public function widgets_init() {
+
+		register_widget( 'Widget_SocialMedia' );
+
+	}
 
 	/**
 	 * NOTE:  Filters are points of execution in which WordPress modifies data
