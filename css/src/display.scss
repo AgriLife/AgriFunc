@@ -4,3 +4,12 @@
 // CSS file to keep people from editing it directly.
 
 /* DO NO EDIT FILE DIRECTLY. USE SRC/DISPLAY.SCSS */
+
+@import 'compass';
+
+// Pullquote styling
+.pullquote {
+	width: 20%;
+	text-indent: 10px;
+	margin: 10px 0 10px 10px;
+}
