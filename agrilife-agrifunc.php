@@ -114,7 +114,7 @@ class AgriFunc {
 		// register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 
 		// Load the Github Updater for non-WP repository plugins
-		add_action( 'plugins_loaded', array( $this, 'github_updater' ) );
+		// add_action( 'plugins_loaded', array( $this, 'github_updater' ) );
 
     /**
      * add_action/add_filter calls are the hooks into which your code should fire.
@@ -315,7 +315,7 @@ class AgriFunc {
 	public function widgets_init() {
 
 		register_widget( 'Widget_SocialMedia' );
-		register_widget( 'Widget_CategoryPosts' );
+		register_widget( 'Widget_AgrilifeToday' );
 
 	}
 
