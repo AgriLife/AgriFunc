@@ -315,6 +315,7 @@ class AgriFunc {
 	public function widgets_init() {
 
 		register_widget( 'Widget_SocialMedia' );
+		register_widget( 'Widget_CategoryPosts' );
 
 	}
 
