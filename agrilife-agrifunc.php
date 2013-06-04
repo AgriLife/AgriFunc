@@ -316,6 +316,7 @@ class AgriFunc {
 
 		register_widget( 'Widget_SocialMedia' );
 		register_widget( 'Widget_AgrilifeToday' );
+		register_widget( 'Widget_WatchReadListen' );
 
 	}
 
