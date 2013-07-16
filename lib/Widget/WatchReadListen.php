@@ -344,8 +344,9 @@ class Widget_WatchReadListen extends WP_Widget {
       
       if ( $enclosure = $item->get_enclosure() )
       {
-        echo "<li><embed type=\"application/x-shockwave-flash\" flashvars=\"audioUrl=" . $enclosure->get_link() . 
-          "\" src=\"http://www.google.com/reader/ui/3523697345-audio-player.swf\" width=\"400\" height=\"27\" quality=\"best\"></li>";
+        echo '<li>';
+        echo do_shortcode( '[audio src="' . $enclosure->get_link() . '" width="400" height="27"]' );
+        echo '</li>';
       }
       
     }
