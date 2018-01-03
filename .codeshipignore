@@ -46,6 +46,8 @@ Thumbs.db
 .sass-cache
 node_modules
 package.json
+known-issues.json
+vipscan.json
 config.rb
 *.md
 *.txt
