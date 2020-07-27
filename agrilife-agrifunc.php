@@ -69,7 +69,7 @@ class AgriFunc {
 	 *
 	 * @return	PluginName	A single instance of this class.
 	 */
-	public function get_instance() {
+	public static function get_instance() {
 		return null == self::$instance ? new self : self::$instance;
 	} // end get_instance;
 
